@@ -1,0 +1,9 @@
+# 1. Ignorar absolutamente todo en la carpeta principal
+/*
+
+# 2. No ignorar el propio archivo .gitignore (opcional, quita esta línea si no quieres subirlo)
+!.gitignore
+
+# 3. Permitir únicamente tus 2 subcarpetas
+!api/
+!webadmin/
