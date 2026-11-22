@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script>
+        async function validarSesion() {
+            const response = await fetch(`api/login.php`)
+            const data = await response.json();
+            if (!data.status) {
+                window.location.href = 'login.html'
+            }
+        }
+        validarSesion();
+    </script>
+</head>
+
+<body>
+    <div class="flex">
+        <!-- Menú lateral -->
+        <div class="flex-1 bg-slate-800 text-white h-screen sticky top-0 p-3 flex flex-col">
+            <h1>
+                Menú <span class="hidden sm:inline">Principal</span>
+            </h1>
+            <div class="my-2 border-t border-slate-600"></div>
+            <nav class="space-y-2" aria-label="menu">
+                <a href="#" id="menu-home" class="block rounded bg-slate-600 px-2 py-2 text-sm hover:bg-slate-500">
+                    Inicio
+                </a>
+
+                <a href="#" id="menu-product" class="block rounded bg-slate-600 px-2 py-2 text-sm hover:bg-slate-500">
+                    Productos
+                </a>
+            </nav>
+            <!-- Botón en la esquina inferior derecha -->
+            <div class="mt-auto pt-4 flex justify-end">
+                <button type="button" id="btnLogout"
+                    class="inline-flex items-center gap-2 rounded bg-red-600 px-3 py-2 text-sm text-white hover:bg-red-700 disabled:opacity-50">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+        <div class="flex-[4] m-4">
+            <div id="div_content">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Se cargan las funciones, pero todavía no se accede a los formularios. -->
+<script src="js/product.js"></script>
+
+<!-- Carga las vistas y llama a iniciarProductos() cuando el HTML ya existe. -->
+<script src="js/script.js"></script>
+
+</html>
